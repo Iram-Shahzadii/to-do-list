@@ -1,0 +1,102 @@
+/* ---------------- RESET & VARIABLES ---------------- */
+*{margin:0;padding:0;box-sizing:border-box;transition:.3s ease}
+:root{
+  --background:#000430;--secondaryBackground:#171c48;
+  --text:#fff;--purple:#828dff;--teal:#24feee
+}
+body{
+  background:var(--background);color:var(--text);
+  font-family:'Poppins',sans-serif;min-height:100vh;
+  display:flex;justify-content:center;align-items:flex-start;
+  padding:20px
+}
+body.light-mode{
+  --background:#f5f5f5;--secondaryBackground:#fff;
+  --text:#000;--purple:#6c63ff;--teal:#00c4cc
+}
+
+/* ---------------- HEADER SWITCH ---------------- */
+.header{position:absolute;top:20px;right:20px}
+.switch{position:relative;display:inline-block;width:60px;height:30px}
+.switch input{display:none}
+.slider{
+  position:absolute;inset:0;cursor:pointer;
+  background:var(--secondaryBackground);border-radius:30px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6px;font-size:16px
+}
+.slider:before{
+  content:"";position:absolute;height:22px;width:22px;
+  left:4px;bottom:4px;background:var(--text);
+  border-radius:50%;transition:.3s
+}
+input:checked+.slider{background:var(--teal)}
+input:checked+.slider:before{transform:translateX(30px)}
+
+/* ---------------- CONTAINER & STATS ---------------- */
+.container{display:flex;flex-direction:column;align-items:center;margin-top:120px;width:100%;max-width:500px}
+.stats-container{
+  padding:30px;border-radius:20px;border:2px solid var(--purple);
+  display:flex;justify-content:space-between;gap:50px;width:100%;flex-wrap:wrap
+}
+#numbers{
+  width:100px;height:100px;background:var(--purple);
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;font-size:30px;font-weight:bold
+}
+#numbers:hover,#numbers:focus{transform:scale(1.1);outline:none}
+#progressBar{width:100%;height:10px;background:var(--secondaryBackground);border-radius:5px;margin-top:20px}
+#progress{width:0;height:10px;background:var(--teal);border-radius:10px}
+
+/* ---------------- FORM ---------------- */
+.task-form{margin-top:60px;width:100%;display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
+.task-form input,.task-form select,.task-form button{background:var(--secondaryBackground);border:1px solid var(--purple);border-radius:10px;color:var(--text);padding:16px}
+.task-form input:focus,.task-form select:focus,.task-form input[type=date]:focus{outline:none;box-shadow:0 0 10px var(--teal)}
+#taskInput{flex:2}
+#category,#dueDate{flex:1;cursor:pointer}
+#voiceBtn,#newTask{
+  width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;border:none
+}
+#voiceBtn{background:var(--secondaryBackground);font-size:22px}
+#voiceBtn:hover{background:var(--purple);transform:scale(1.1)}
+#newTask{background:var(--purple);font-size:28px;font-weight:bold}
+#newTask:hover{background:var(--teal);transform:scale(1.1)}
+@media(max-width:500px){
+  .task-form{flex-direction:column;align-items:stretch}
+  .task-form input,.task-form select,#dueDate,#voiceBtn,#newTask{width:100%;flex:none}
+  #voiceBtn,#newTask{border-radius:10px;height:45px;font-size:22px}
+}
+
+/* ---------------- TASK LIST ---------------- */
+#task-list{display:flex;flex-direction:column;gap:10px;margin-top:30px;width:100%;list-style:none}
+.taskItem{
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--secondaryBackground);padding:10px;border-radius:10px;
+  transition:.2s
+}
+.taskItem:hover,.taskItem:focus-within{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+.task{flex:1;display:flex;align-items:center;gap:10px;overflow:hidden}
+.task p{margin:0;flex:1;word-wrap:break-word;overflow-wrap:break-word}
+.task input{width:20px;height:20px}
+.task.completed{text-decoration:line-through;color:var(--teal)}
+.icons{display:flex;gap:10px;flex-shrink:0}
+.taskItem img{width:24px;height:24px;cursor:pointer}
+.taskItem img:hover{transform:scale(1.2)}
+
+/* ---------------- CONTROLS ---------------- */
+.controls{display:flex;justify-content:space-between;gap:10px;margin:15px 0}
+.controls select,.controls input{
+  flex:1;padding:8px 12px;border-radius:8px;border:none;outline:none;
+  background:var(--secondaryBackground);color:var(--text)
+}
+
+/* ---------------- POPUP ---------------- */
+.popup-message{
+  position:fixed;top:20px;right:-300px;
+  background:var(--teal);color:#000;padding:12px 20px;
+  border-radius:12px;font-size:16px;font-weight:bold;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  transition:.5s;opacity:.9;z-index:1000
+}
+.popup-message.show{right:20px;opacity:1}

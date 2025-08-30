@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do-List</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:,"> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!-- 🌙/☀️ Theme Toggle -->
+  <header class="header">
+    <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider">
+        <span class="icon">🌙</span>
+        <span class="icon">☀️</span>
+      </span>
+    </label>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <!-- Stats -->
+    <section class="stats-container">
+      <div class="details">
+        <h1>To-do-list</h1>
+        <p>Keep it up!</p>
+        <div id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+          <div id="progress"></div>
+        </div>
+      </div>
+      <p id="numbers" tabindex="0">0/0</p>
+    </section>
+
+    <!-- Task Form -->
+    <form class="task-form">
+      <input type="text" id="taskInput" placeholder="Write a task" required>
+      <button type="button" id="voiceBtn" title="Speak your task">🎙️</button>
+      <select id="category">
+        <option value="work">💼 Work</option>
+        <option value="study" selected>📚 Study</option>
+        <option value="personal">👤 Personal</option>
+        <option value="shopping">🛒 Shopping</option>
+        <option value="other">📌 Other</option>
+      </select>
+      <input type="date" id="dueDate" required>
+      <button id="newTask" type="submit">➕</button>
+    </form>
+
+    <!-- Filter + Search -->
+    <div class="controls">
+      <select id="filter">
+        <option value="all">All Tasks</option>
+        <option value="completed">Completed</option>
+        <option value="pending">Pending</option>
+      </select>
+      <input type="text" id="search" placeholder="🔍 Search tasks...">
+    </div>
+
+    <!-- Task List -->
+    <ul id="task-list"></ul>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
