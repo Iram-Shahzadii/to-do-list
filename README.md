@@ -29,5 +29,5 @@ It provides a **clean and responsive interface** for adding, completing, and del
 ## 👩‍💻 Author
 Made with ❤️ by **Iram Shahzadi**  
 
-[![GitHub](https://github.com/Iram-Shahzadii)  
-[![LinkedIn](https://www.linkedin.com/in/iram-shahzadi-5294a6329/)
+[GitHub](https://github.com/Iram-Shahzadii)  
+[LinkedIn](https://www.linkedin.com/in/iram-shahzadi-5294a6329/)
